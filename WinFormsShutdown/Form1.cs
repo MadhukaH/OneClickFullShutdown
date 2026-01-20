@@ -20,11 +20,23 @@ namespace WinFormsShutdown
             this.BackColor = Color.FromArgb(30, 30, 30);
             this.Size = new Size(500, 550);
 
-            // Set custom icon
-            string iconPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "app_icon.ico");
-            if (File.Exists(iconPath))
+            // Set custom icon from PNG
+            try
             {
-                this.Icon = new Icon(iconPath);
+                string iconPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "power_button.png");
+                if (File.Exists(iconPath))
+                {
+                    using (var img = Image.FromFile(iconPath))
+                    {
+                        var bitmap = new Bitmap(img, new Size(256, 256));
+                        IntPtr hIcon = bitmap.GetHicon();
+                        this.Icon = Icon.FromHandle(hIcon);
+                    }
+                }
+            }
+            catch
+{
+                // If icon loading fails, continue with default icon
             }
         }
 
