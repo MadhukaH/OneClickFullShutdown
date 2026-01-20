@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # 🔴 One-Click Full Shutdown for Windows
 
 A lightweight C# application to perform a **true full shutdown** on Windows by bypassing Fast Startup. Optimized for ASUS ROG G16 gaming laptops.
