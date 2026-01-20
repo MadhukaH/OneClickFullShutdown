@@ -19,6 +19,13 @@ namespace WinFormsShutdown
             this.Text = "Full Shutdown Utility";
             this.BackColor = Color.FromArgb(30, 30, 30);
             this.Size = new Size(500, 550);
+
+            // Set custom icon
+            string iconPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "app_icon.ico");
+            if (File.Exists(iconPath))
+            {
+                this.Icon = new Icon(iconPath);
+            }
         }
 
         private void InitializeComponent()
